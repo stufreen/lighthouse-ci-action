@@ -131,6 +131,8 @@ if ! is_installed shopify; then
   gem install shopify-cli --version 2.35.0
 fi
 
+gem update shopify-cli
+
 step "Configuring shopify CLI"
 
 # Disable analytics
