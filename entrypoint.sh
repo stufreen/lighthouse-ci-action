@@ -127,12 +127,13 @@ fi
 
 if ! is_installed shopify; then
   step "Installing Shopify CLI"
-  log "gem install shopify"
+  log "gem install shopify-cli"
   gem install shopify-cli
 fi
 
-log "gem update shopify"
-gem update shopify-cli
+gem list | grep shopify-cli
+log "gem update shopify-cli"
+gem update shopify-cli --version 2.35.0
 
 step "Configuring shopify CLI"
 
