@@ -1,3 +1,3 @@
-FROM alpine:3.17.2
+FROM ruby:3.2.1
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
