@@ -132,6 +132,7 @@ if ! is_installed shopify; then
 fi
 
 gem update shopify-cli
+gem cleanup
 
 step "Configuring shopify CLI"
 
