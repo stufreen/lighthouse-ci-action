@@ -1,8 +1,6 @@
 FROM cpclermont/lighthouse-ci-action:1.0.0
+RUN gem uninstall shopify-cli
+RUN gem install shopify-cli --version 2.34.0
 RUN gem list
-RUN gem search shopify-cli
-RUN gem update shopify-cli
-RUN gem list
-RUN gem cleanup
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
