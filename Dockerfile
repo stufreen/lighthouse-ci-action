@@ -1,4 +1,3 @@
-FROM cpclermont/lighthouse-ci-action:1.0.0
-RUN gem update --system
+ghcr.io/shopify/lighthouse-ci-action:1.1.0
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
