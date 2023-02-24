@@ -102,8 +102,8 @@ api_request() {
 cleanup() {
   if [[ -n "${theme+x}" ]]; then
     step "Disposing development theme"
-    ./shopify theme delete -d -f
-    ./shopify logout
+    shopify theme delete -d -f
+    shopify logout
   fi
 
   if [[ -f "lighthouserc.yml" ]]; then
@@ -149,7 +149,7 @@ else
   export SHOPIFY_PASSWORD="$SHOP_APP_PASSWORD"
 fi
 
-./shopify login
+shopify login
 
 host="https://${SHOP_STORE#*(https://|http://)}"
 theme_root="${THEME_ROOT:-.}"
@@ -164,10 +164,10 @@ theme_push_log="$(mktemp)"
 
 if [[ -n "${SHOP_PULL_THEME+x}" ]]; then
   log "Pulling theme $SHOP_PULL_THEME"
-  ./shopify theme pull --theme ${SHOP_PULL_THEME} --only templates/*.json --only config/settings_data.json
+  shopify theme pull --theme ${SHOP_PULL_THEME} --only templates/*.json --only config/settings_data.json
 fi
 
-./shopify theme push --development --json $theme_root > "$theme_push_log" && cat "$theme_push_log"
+shopify theme push --development --json $theme_root > "$theme_push_log" && cat "$theme_push_log"
 preview_url="$(cat "$theme_push_log" | tail -n 1 | jq -r '.theme.preview_url')"
 preview_id="$(cat "$theme_push_log" | tail -n 1 | jq -r '.theme.id')"
 
