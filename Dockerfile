@@ -10,7 +10,7 @@ RUN apt-get update \
     && git -C "$(rbenv root)"/plugins/ruby-build pull \
     && rbenv install 2.7.1 \
     && rbenv global 2.7.1 \
-    && gem install shopify-cli -N --version 2.0.1
+    && gem install shopify-cli -N
 
 ###
 # Chrome in Docker fix
@@ -36,4 +36,6 @@ RUN mkdir -p "$npm_config_prefix" \
   && npm install -g @lhci/cli@0.8.x puppeteer
 
 COPY entrypoint.sh /entrypoint.sh
+RUN PATH="$PATH"
+RUN exec bash
 ENTRYPOINT ["/entrypoint.sh"]

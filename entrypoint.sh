@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+source ~/.bashrc
 
 ####################################################################
 # START of GitHub Action specific code
