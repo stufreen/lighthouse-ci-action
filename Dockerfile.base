@@ -27,6 +27,7 @@ RUN apt-get update \
 
 ENV npm_config_prefix="$GITHUB_WORKSPACE/.node"
 ENV PATH="$npm_config_prefix:${PATH}"
+ENV PUPPETEER_CACHE_DIR="$GITHUB_WORKSPACE/.cache"
 RUN mkdir -p "$npm_config_prefix" \
   && chmod -R 777 "$npm_config_prefix" \
   && umask 000 \
